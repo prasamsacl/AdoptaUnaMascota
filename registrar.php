@@ -36,11 +36,11 @@
 
      <?php
       $server = "localhost";
-      $username = "root"; // Reemplazar con el nombre de usuario de la base de datos
-      $password = "12345"; // Reemplazar con la contraseña de la base de datos
-      $database = "AdoptaUnaMascota"; // Reemplazar con el nombre de la base de datos
+      $username = "root"; 
+      $password = "12345"; 
+      $database = "AdoptaUnaMascota"; 
 
-      // Crear la conexión con la base de datos
+      // conexión con la base de datos
       $db = mysqli_connect($server, $username, $password, $database);
 
       // Verificar si la conexión es exitosa
