@@ -34,41 +34,52 @@
 </head>
 <body>
 
-     <?php
-      $server = "localhost";
-      $username = "root"; 
-      $password = "12345"; 
-      $database = "AdoptaUnaMascota"; 
+  <?php
+$server = "localhost";
+$username = "root"; 
+$password = "12345"; 
+$database = "AdoptaUnaMascota"; 
 
-      // conexión con la base de datos
-      $db = mysqli_connect($server, $username, $password, $database);
+// conexión con la base de datos
+$db = mysqli_connect($server, $username, $password, $database);
 
-      // Verificar si la conexión es exitosa
-      if (!$db) {
-        die("La conexión a la base de datos ha fallado: " . mysqli_connect_error());
-      }
+// Verificar si la conexión es exitosa
+if (!$db) {
+    die("La conexión a la base de datos ha fallado: " . mysqli_connect_error());
+}
 
-      // Si se envió el formulario, insertar los datos en la base de datos
-      if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $nombre = $_POST["nombre"];
-        $apellidos = $_POST["apellidos"];
-        $email = $_POST["email"];
-        $pais = $_POST["pais"];
-        $provincia = $_POST["provincia"];
-        $contraseña = $_POST["contraseña"];
+// Si se envió el formulario, insertar los datos en la base de datos
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $nombre = $_POST["nombre"];
+    $apellidos = $_POST["apellidos"];
+    $email = $_POST["email"];
+    $pais = $_POST["pais"];
+    $provincia = $_POST["provincia"];
+    $contraseña = $_POST["contraseña"];
+    $hashed_password = password_hash($contraseña, PASSWORD_DEFAULT);
 
-        $sql = "INSERT INTO usuarios (nombre, apellidos, email, pais, provincia, contraseña) VALUES ('$nombre', '$apellidos', '$email', '$pais', '$provincia', '$contrasena')";
+    $sql = "INSERT INTO usuarios (nombre, apellidos, email, pais, provincia, contraseña) VALUES ('$nombre', '$apellidos', '$email', '$pais', '$provincia', '$hashed_password')";
 
-        if (mysqli_query($db, $sql)) {
-          echo "El registro se ha completado satisfactoriamente";
-        } else {
-          echo "Error: " . $sql . "<br>" . mysqli_error($db);
-        }
-      }
+    if (mysqli_query($db, $sql)) {
+        echo "El registro se ha completado satisfactoriamente";
+    } else {
+        echo "Error: " . $sql . "<br>" . mysqli_error($db);
+    }
+}
 
-      // Cerrar la conexión con la base de datos
-      mysqli_close($db);
-    ?>
+// Cerrar la conexión con la base de datos
+mysqli_close($db);
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formulario de Registro</title>
+    <style>
+        /* Estilos CSS aquí */
+    </style>
+</head>
+<body>
     <h1>Formulario de Registro</h1>
     <form action="registrar.php" method="post">
         <label for="nombre">Nombre:</label>
@@ -99,4 +110,5 @@
     </form>
 </body>
 </html>
+
 
