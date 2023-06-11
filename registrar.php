@@ -1,39 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Formulario de Registro</title>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-
-        form {
-            width: 400px;
-            padding: 20px;
-            background-color: #f0f0f0;
-            border-radius: 5px;
-        }
-
-        label, input {
-            display: block;
-            margin-bottom: 10px;
-        }
-
-        input[type="submit"] {
-            width: 100%;
-            padding: 10px;
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            cursor: pointer;
-        }
-    </style>
-</head>
-<body>
-
   <?php
 $server = "localhost";
 $username = "root"; 
@@ -75,9 +39,34 @@ mysqli_close($db);
 <html>
 <head>
     <title>Formulario de Registro</title>
-    <style>
-        /* Estilos CSS aquí */
-    </style>
+     <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        form {
+            width: 400px;
+            padding: 20px;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+        }
+
+        label, input {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
 </head>
 <body>
     <h1>Formulario de Registro</h1>
